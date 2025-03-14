@@ -1,0 +1,10 @@
+spring:
+  ai:
+    mcp:
+      client:
+        sse:
+          connections:
+            server1:
+              url: http://localhost:8080
+
+server.port: 8060
