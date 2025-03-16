@@ -10,15 +10,14 @@ public class Account {
     private Long id;
     private String number;
     private int balance;
-    @ManyToOne
-    private Person person;
+    private Long personId;
 
-    public Person getPerson() {
-        return person;
+    public Long getPersonId() {
+        return personId;
     }
 
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPersonId(Long personId) {
+        this.personId = personId;
     }
 
     public Long getId() {

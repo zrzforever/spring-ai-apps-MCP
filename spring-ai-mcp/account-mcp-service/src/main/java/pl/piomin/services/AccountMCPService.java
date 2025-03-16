@@ -1,37 +1,30 @@
 package pl.piomin.services;
 
-import io.modelcontextprotocol.server.McpServerFeatures;
-import io.modelcontextprotocol.spec.McpSchema;
-import org.springframework.ai.tool.ToolCallback;
 import org.springframework.ai.tool.ToolCallbackProvider;
-import org.springframework.ai.tool.ToolCallbacks;
 import org.springframework.ai.tool.method.MethodToolCallbackProvider;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import pl.piomin.services.repository.PersonRepository;
-import pl.piomin.services.tools.PersonTools;
-
-import java.util.List;
+import pl.piomin.services.tools.AccountTools;
 
 @SpringBootApplication
-public class SampleServer {
+public class AccountMCPService {
 
     public static void main(String[] args) {
-        SpringApplication.run(SampleServer.class, args);
-    }
-
-    @Bean
-    public ToolCallbackProvider tools(PersonRepository personRepository) {
-        return ToolCallbackProvider.from(ToolCallbacks.from(new PersonTools(personRepository)));
+        SpringApplication.run(AccountMCPService.class, args);
     }
 
 //    @Bean
 //    public ToolCallbackProvider tools(PersonRepository personRepository) {
-//        return MethodToolCallbackProvider.builder()
-//                .toolObjects(new PersonTools(personRepository))
-//                .build();
+//        return ToolCallbackProvider.from(ToolCallbacks.from(new PersonTools(personRepository)));
 //    }
+
+    @Bean
+    public ToolCallbackProvider tools(AccountTools accountTools) {
+        return MethodToolCallbackProvider.builder()
+                .toolObjects(accountTools)
+                .build();
+    }
 
 //    @Bean
 //    public List<McpServerFeatures.SyncPromptRegistration> prompts() {

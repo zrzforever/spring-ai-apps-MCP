@@ -2,8 +2,6 @@ package pl.piomin.services.model;
 
 import jakarta.persistence.*;
 
-import java.util.Set;
-
 @Entity
 public class Person {
 
@@ -16,8 +14,6 @@ public class Person {
     private String nationality;
     @Enumerated(EnumType.STRING)
     private Gender gender;
-    @OneToMany
-    private Set<Account> accounts;
 
     public String getFirstName() {
         return firstName;
@@ -67,11 +63,4 @@ public class Person {
         this.gender = gender;
     }
 
-    public Set<Account> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(Set<Account> accounts) {
-        this.accounts = accounts;
-    }
 }

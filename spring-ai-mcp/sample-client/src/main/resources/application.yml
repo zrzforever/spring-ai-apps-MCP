@@ -5,6 +5,4 @@ spring:
         sse:
           connections:
             server1:
-              url: http://localhost:8080
-
-server.port: 8060
+              url: http://localhost:8060

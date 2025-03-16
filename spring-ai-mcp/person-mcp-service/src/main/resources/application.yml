@@ -11,3 +11,5 @@ spring:
       ddl-auto: create-drop
 
 logging.level.org.springframework.ai: DEBUG
+
+server.port: 8060
