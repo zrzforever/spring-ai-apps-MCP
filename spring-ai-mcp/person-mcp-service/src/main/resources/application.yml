@@ -2,7 +2,7 @@ spring:
   ai:
     mcp:
       server:
-        name: webmvc-mcp-server
+        name: person-mcp-server
         version: 1.0.0
   jpa:
     database-platform: H2

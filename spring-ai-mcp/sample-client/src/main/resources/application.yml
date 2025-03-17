@@ -1,8 +1,5 @@
-spring:
-  ai:
-    mcp:
-      client:
-        sse:
-          connections:
-            server1:
-              url: http://localhost:8060
+spring.ai.mcp.client.sse.connections:
+  person-mcp-server:
+    url: http://localhost:8060
+  account-mcp-server:
+    url: http://localhost:8040

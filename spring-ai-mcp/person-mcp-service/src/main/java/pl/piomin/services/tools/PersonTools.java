@@ -18,9 +18,16 @@ public class PersonTools {
         this.personRepository = personRepository;
     }
 
+    @Tool(description = "Find person by ID")
+    public Person getPersonById(
+            @ToolParam(description = "Person ID") Long id) {
+        return personRepository.findById(id).orElse(null);
+    }
+
     @Tool(description = "Find all persons by nationality")
     public List<Person> getPersonsByNationality(
             @ToolParam(description = "Nationality") String nationality) {
         return personRepository.findByNationality(nationality);
     }
+
 }

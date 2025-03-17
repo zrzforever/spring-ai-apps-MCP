@@ -30,21 +30,30 @@ public class AccountController {
                             ToolCallbackProvider tools) {
         this.chatClient = chatClientBuilder
                 .defaultTools(tools)
-//                .defaultAdvisors(
-//                        new PromptChatMemoryAdvisor(chatMemory),
-//                        new SimpleLoggerAdvisor())
                 .build();
     }
 
-    @GetMapping("/count-by-nationality/{nationality}")
+    @GetMapping("/count-by-person-id/{personId}")
     String countByPersonId(@PathVariable String personId) {
         PromptTemplate pt = new PromptTemplate("""
                 How many accounts has person with {personId} ID ?
                 """);
         Prompt p = pt.create(Map.of("personId", personId));
-//        loadPromptByName("persons-by-nationality", nationality);
         return this.chatClient.prompt(p)
                 .call()
                 .content();
     }
+
+    @GetMapping("/balance-by-person-id/{personId}")
+    String balanceByPersonId(@PathVariable String personId) {
+        PromptTemplate pt = new PromptTemplate("""
+                How many accounts has person with {personId} ID ?
+                Return person name, nationality and a total balance on his/her accounts.
+                """);
+        Prompt p = pt.create(Map.of("personId", personId));
+        return this.chatClient.prompt(p)
+                .call()
+                .content();
+    }
+
 }

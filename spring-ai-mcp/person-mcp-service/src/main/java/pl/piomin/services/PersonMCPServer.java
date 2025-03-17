@@ -18,11 +18,6 @@ public class PersonMCPServer {
         SpringApplication.run(PersonMCPServer.class, args);
     }
 
-//    @Bean
-//    public ToolCallbackProvider tools(PersonRepository personRepository) {
-//        return ToolCallbackProvider.from(ToolCallbacks.from(new PersonTools(personRepository)));
-//    }
-
     @Bean
     public ToolCallbackProvider tools(PersonTools personTools) {
         return MethodToolCallbackProvider.builder()
@@ -36,9 +31,9 @@ public class PersonMCPServer {
                 List.of(new McpSchema.PromptArgument("nationality", "Person nationality", true)));
 
         var promptRegistration = new McpServerFeatures.SyncPromptRegistration(prompt, getPromptRequest -> {
-            String nameArgument = (String) getPromptRequest.arguments().get("name");
+            String argument = (String) getPromptRequest.arguments().get("nationality");
             var userMessage = new McpSchema.PromptMessage(McpSchema.Role.USER,
-                    new McpSchema.TextContent("How many persons come from " + nameArgument + " ?"));
+                    new McpSchema.TextContent("How many persons come from " + argument + " ?"));
             return new McpSchema.GetPromptResult("Count persons by nationality", List.of(userMessage));
         });
 
