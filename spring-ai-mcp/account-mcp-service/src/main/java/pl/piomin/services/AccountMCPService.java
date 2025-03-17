@@ -14,11 +14,6 @@ public class AccountMCPService {
         SpringApplication.run(AccountMCPService.class, args);
     }
 
-//    @Bean
-//    public ToolCallbackProvider tools(PersonRepository personRepository) {
-//        return ToolCallbackProvider.from(ToolCallbacks.from(new PersonTools(personRepository)));
-//    }
-
     @Bean
     public ToolCallbackProvider tools(AccountTools accountTools) {
         return MethodToolCallbackProvider.builder()

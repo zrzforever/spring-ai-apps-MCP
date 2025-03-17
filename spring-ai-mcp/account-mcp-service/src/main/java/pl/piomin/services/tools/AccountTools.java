@@ -18,7 +18,7 @@ public class AccountTools {
     }
 
     @Tool(description = "Find all accounts by person ID")
-    public List<Account> getAccountsByNationality(
+    public List<Account> getAccountsByPersonId(
             @ToolParam(description = "Person ID") Long personId) {
         return accountRepository.findByPersonId(personId);
     }
