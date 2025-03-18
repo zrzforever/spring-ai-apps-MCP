@@ -17,7 +17,25 @@ This project demonstrates the integration of AI capabilities within a Spring Boo
 - [Running the Application](#running-the-application)
 - [Articles](#articles)
 
+## Running the application
+
+You can always run all the apps locally with Spring Maven Plugin support:
+```shell
+mvn spring-boot:run
+```
+
+Sometimes, you would have to connect the app with the AI model. It can be OpenAI or your preferred model. Before running the app you should export the API token as shown below.
+```shell
+export SPRING_AI_OPENAI_API_KEY=<YOUR_OPENAI_API_KEY>
+```
+
 ## Architecture
 
+### MCP Client/Server
+
+The example is available in the `spring-ai-mcp` directory. Here's the diagram that visualizes architecture.
+
+<img src="https://i0.wp.com/piotrminkowski.com/wp-content/uploads/2025/03/Screenshot-2025-03-16-at-12.24.46.png?w=1392&ssl=1" title="Architecture"><br/>
+
 # Articles
-1. Getting started with Spring AI **MCP** concept. Implement client-side and server-side application that exposes `@Tools` and `Prompts` to other services. The example is available in the branch [master](https://github.com/piomin/spring-ai-showcase/tree/master). A detailed guide may be found in the following article: [Using Model Context Protocol (MCP) with Spring AI](https://piotrminkowski.com/2025/03/17/using-model-context-protocol-mcp-with-spring-ai/)
+1. Getting started with the Spring AI **MCP** concept. Implement a client-side and a server-side application that exposes `@Tools` and `Prompts` to other services. The example is available in the branch [master](https://github.com/piomin/spring-ai-showcase/tree/master). A detailed guide may be found in the following article: [Using Model Context Protocol (MCP) with Spring AI](https://piotrminkowski.com/2025/03/17/using-model-context-protocol-mcp-with-spring-ai/)
