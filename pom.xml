@@ -17,7 +17,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>spring-ai-watsonx</module>
         <module>spring-ai-mcp</module>
         <module>spring-ai-mcp/person-mcp-service</module>
         <module>spring-ai-mcp/sample-client</module>
