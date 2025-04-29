@@ -12,4 +12,10 @@
     <artifactId>spring-ai-mcp</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>person-mcp-service</module>
+        <module>sample-client</module>
+        <module>account-mcp-service</module>
+    </modules>
+
 </project>
